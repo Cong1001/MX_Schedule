@@ -1,0 +1,151 @@
+{
+    "RHEL6": {
+        "OS": "REDHAT_ENTERPRISE_LINUX",
+        "Product": [
+            "RedhatEnterpriseLinux6.5",
+            "RedhatEnterpriseLinux6.6", 
+            "RedhatEnterpriseLinux6.7", 
+            "RedhatEnterpriseLinux6.8", 
+            "RedhatEnterpriseLinux6.9", 
+            "RedhatEnterpriseLinux6.10"
+        ], 
+        "Reject_Patchs": [
+            "ruby*", 
+            "mysql*", 
+            "java*", 
+            "puppet*", 
+            "foreman*"
+        ], 
+        "Severity": [
+            "*"
+        ], 
+        "Classification": [
+            "*"
+        ]
+    },
+    "RHEL7": {
+        "OS": "REDHAT_ENTERPRISE_LINUX",
+        "Product": [
+            "RedhatEnterpriseLinux7.0",
+            "RedhatEnterpriseLinux7.1", 
+            "RedhatEnterpriseLinux7.2", 
+            "RedhatEnterpriseLinux7.3", 
+            "RedhatEnterpriseLinux7.4", 
+            "RedhatEnterpriseLinux7.5",
+            "RedhatEnterpriseLinux7.6"
+        ], 
+        "Reject_Patchs": [
+            "ruby*", 
+            "mysql*", 
+            "java*", 
+            "puppet*", 
+            "foreman*"
+        ], 
+        "Severity": [
+            "*"
+        ], 
+        "Classification": [
+            "*"
+        ]
+    },
+    "AmazonLinux1": {
+        "OS": "AMAZON_LINUX",
+        "Product": [
+            "*"
+        ], 
+        "Reject_Patchs": [
+            "ruby*", 
+            "mysql*", 
+            "java*", 
+            "puppet*", 
+            "foreman*"
+        ], 
+        "Severity": [
+            "*"
+        ], 
+        "Classification": [
+            "*"
+        ]
+    },
+    "AmazonLinux2": {
+        "OS": "AMAZON_LINUX_2",
+        "Product": [
+            "*"
+        ], 
+        "Reject_Patchs": [
+            "ruby*", 
+            "mysql*", 
+            "java*", 
+            "puppet*", 
+            "foreman*"
+        ], 
+        "Severity": [
+            "*"
+        ], 
+        "Classification": [
+            "*"
+        ]
+    },
+    "WinServer2008": {
+        "OS": "WINDOWS",
+        "Product": [
+            "WindowsServer2008",
+            "WindowsServer2008R2"
+        ], 
+        "Reject_Patchs": [
+            ], 
+        "Severity": [
+            "Critical",
+            "Important",
+            "Moderate"
+        ], 
+        "Classification": [
+            "CriticalUpdates", 
+            "DefinitionUpdates", 
+            "SecurityUpdates", 
+            "UpdateRollups", 
+            "Updates"
+        ]
+    },
+    "WinServer2012": {
+        "OS": "WINDOWS",
+        "Product": [
+            "WindowsServer2012",
+            "WindowsServer2012R2"
+        ], 
+        "Reject_Patchs": [
+            ], 
+        "Severity": [
+            "Critical",
+            "Important",
+            "Moderate"
+        ], 
+        "Classification": [
+            "CriticalUpdates", 
+            "DefinitionUpdates", 
+            "SecurityUpdates", 
+            "UpdateRollups", 
+            "Updates"
+        ]
+    },
+    "WinServer2016": {
+        "OS": "WINDOWS",
+        "Product": [
+            "WindowsServer2016"
+        ], 
+        "Reject_Patchs": [
+            ], 
+        "Severity": [
+            "Critical",
+            "Important",
+            "Moderate"
+        ], 
+        "Classification": [
+            "CriticalUpdates", 
+            "DefinitionUpdates", 
+            "SecurityUpdates", 
+            "UpdateRollups", 
+            "Updates"
+        ]
+    }
+}

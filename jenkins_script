@@ -1,0 +1,55 @@
+#!/usr/bin/env groovy
+
+void set_buildname() {
+    currentBuild.displayName = "${Cloud} ${Region}${CustomerID} MX Schedule #${env.BUILD_ID}"
+    currentBuild.description = "Cloud Platform: ${Cloud}\nRegion/CustomerID: ${Region}${CustomerID}\nSchedule Time: ${Year}-${Month}-${Day} ${Hour}:${Minute}"
+}
+
+pipeline {
+    agent any
+    environment {
+        PATH = "/usr/local/bin:$PATH"
+        PYTHONPATH = "$WORKSPACE:$WORKSPACE/scripts:$PYTHONPATH"
+    }
+    stages {
+        stage("Preparing...") {
+            steps {
+                set_buildname()
+                echo "Downloading deployment scripts..."
+                git url: 'git@gitlab.cofu.com:jenkins/mx_schedule.git',
+                    branch: 'master'
+                dir('Customer_List') {
+                    set_buildname()
+                    echo "Downloading Customer_List..."
+                    git url: 'git@gitlab.cofu.com:jenkins/customer_list.git',
+                        branch: 'master'
+                }
+            }
+        }
+        stage("Deploying...") {
+            steps {
+                set_buildname()
+                echo "Deploying..."
+                script {
+                    sh 'pwd'
+                    sh 'mkdir ./tmp'
+                    sh 'python ./scripts/Main_Schedule.py'
+                }
+            }
+        }
+        stage("Error output") {
+            steps {
+                set_buildname()
+                script {
+                    sh 'python ./scripts/error_out.py'
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'One way or another, I have finished'
+            cleanWs() /* clean up our workspace */
+        }
+    }
+}
